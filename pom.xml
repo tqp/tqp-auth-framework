@@ -6,11 +6,11 @@
 
     <groupId>com.timsanalytics.jar</groupId>
     <artifactId>tqp-auth-framework</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.0.2</version>
 
-    <name>${project.groupId}:${project.artifactId}</name>
-    <description>A sample external JAR</description>
-    <url>https://timsanalytics.com</url>
+    <name>TQP Auth Framework</name>
+    <description>Custom Authentication Framework</description>
+    <url>http://timsanalytics.com</url>
 
     <licenses>
         <license>
@@ -21,36 +21,12 @@
 
     <developers>
         <developer>
-            <id>tqp</id>
             <name>Tim Powers</name>
             <email>timothyqpowers@gmail.com</email>
+            <organization>timsanalytics.com</organization>
+            <organizationUrl>http://www.timsanalytics.com</organizationUrl>
         </developer>
     </developers>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
-            </url>
-        </repository>
-    </distributionManagement>
-
-    <scm>
-        <connection>scm:git:git@github.com:tqp/tqp-auth-framework.git</connection>
-        <developerConnection>scm:git:ssh://github.com:tqp/tqp-auth-framework.git</developerConnection>
-        <url>https://github.com/tqp/tqp-auth-framework</url>
-    </scm>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.12.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +35,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <timestamp>${maven.build.timestamp}</timestamp>
     </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.12.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <dependencies>
 
@@ -84,10 +67,10 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -95,10 +78,10 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -108,10 +91,10 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -121,10 +104,10 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -135,7 +118,25 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
+
+    <scm>
+        <connection>scm:git:git://github.com/tqp/tqp-auth-framework.git</connection>
+        <developerConnection>scm:git:ssh://github.com:tqp/tqp-auth-framework.git</developerConnection>
+        <url>https://github.com/tqp/tqp-auth-framework.git</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
